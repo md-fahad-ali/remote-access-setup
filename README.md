@@ -42,11 +42,16 @@ chmod +x ~/background-services.sh
 chmod +x ~/sleep-aliases.sh
 ```
 
-### 4. Configure Lid Closure (Stay Awake)
-To keep the laptop running when the lid is shut:
-1. Open the config: `sudo nano /etc/systemd/logind.conf`
-2. Change or add this line: `HandleLidSwitch=ignore`
-3. Restart the service: `sudo systemctl restart systemd-logind`
+### 4. Configure Lid Closure (24/7 Access)
+This is the most important step to allow the laptop to work while "shut down" (lid closed):
+1. Open the system login config: `sudo nano /etc/systemd/logind.conf`
+2. Ensure the following line is active and set to **ignore**:
+   ```text
+   HandleLidSwitch=ignore
+   ```
+3. Restart the login service: `sudo systemctl restart systemd-logind`
+
+**✅ Result:** Your VNC/RDP session will **NOT** disconnect when you close the laptop lid.
 
 ### 5. Set VNC Password
 Create the password you will use to log in via the browser:
@@ -77,5 +82,6 @@ Open your browser and go to:
 ---
 
 ## 💡 Tips & Automation
+- **Lid Closed Mode:** You can safely close the laptop lid after starting these services. The system will continue running your desktop, scripts, and network connections in the background.
 - **Shortcuts:** Add `source ~/sleep-aliases.sh` to your `~/.zshrc` or `~/.bashrc` to use commands like `slp` (sleep mode) and `perf` (performance mode).
 - **Background Check:** Run `~/background-services.sh` to ensure the gateway stays active.
