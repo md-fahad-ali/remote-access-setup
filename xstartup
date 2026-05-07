@@ -1,0 +1,19 @@
+#!/bin/bash
+# FORCE ACTUAL LINUX MINT GRAPHICS
+export XDG_CURRENT_DESKTOP=X-Cinnamon
+export XDG_SESSION_DESKTOP=cinnamon
+export CINNAMON_2D=1
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+vncconfig -iconic &
+
+# Start the actual Mint Desktop Environment
+# We use 'dbus-launch' to ensure the menu and system tray work
+dbus-launch --exit-with-session cinnamon-session --session cinnamon2d &
+
+# Safety terminal
+xterm -geometry 80x24+10+10 &
+
+wait
