@@ -34,6 +34,10 @@ Move the files from this repository to their correct locations on your system:
 | `xstartup` | `~/.vnc/xstartup` | `mkdir -p ~/.vnc && cp xstartup ~/.vnc/xstartup` |
 | `background-services.sh` | `~/background-services.sh` | `cp background-services.sh ~/background-services.sh` |
 | `sleep-aliases.sh` | `~/sleep-aliases.sh` | `cp sleep-aliases.sh ~/sleep-aliases.sh` |
+| `CLIPBOARD_SYNC.md` | `~/remote-access-setup/CLIPBOARD_SYNC.md` | (Documentation only) |
+
+## 📋 Clipboard & Copy-Paste
+For detailed instructions on how to sync your clipboard between your main machine and the remote desktop, please refer to **[CLIPBOARD_SYNC.md](./CLIPBOARD_SYNC.md)**.
 
 **Make them executable:**
 ```bash
